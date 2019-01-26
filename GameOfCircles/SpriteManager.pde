@@ -1,6 +1,8 @@
 class SpriteManager {
-  ArrayList<AbstractSprite> sprites = new ArrayList<AbstractSprite>();
   Player player;
+  
+  ArrayList<AbstractSprite> sprites = new ArrayList<AbstractSprite>();
+  ArrayList<AbstractSprite> destroyed = new ArrayList<AbstractSprite>();
   
   SpriteManager() {
     player = new Player(width / 2, height - 100);
@@ -8,7 +10,7 @@ class SpriteManager {
   }
   
   void destroy(AbstractSprite target) {
-    sprites.remove(target);
+    destroyed.add(target);
   }
   
   void spawn(AbstractSprite obj) {
@@ -20,19 +22,27 @@ class SpriteManager {
       sprites.get(i).animate();
     }
     checkCollisions();
+    bringOutTheDead();
   }
   
   void checkCollisions() {
-    for(int i = sprites.size() - 1; i >= 0; i--) {      
-      for(int j = i; j >= 0; j--) {
-          AbstractSprite a = sprites.get(i);
-          AbstractSprite b = sprites.get(j);
-          if(a.isColliding(b) && a.team != b.team) {
-            println("COLL");
-            sprites.get(i).handleCollision();
-            sprites.get(j).handleCollision();
-          }
+    for(int i = 0; i < sprites.size(); i++) {
+      for(int j = 0; j < sprites.size(); j++) {
+        AbstractSprite a = sprites.get(i);
+        AbstractSprite b = sprites.get(j);
+        if(a.team != b.team && a.isColliding(b)) {
+          sprites.get(i).handleCollision();
+          sprites.get(j).handleCollision();
+        }
       }
+    }
+  }
+  
+  void bringOutTheDead() {
+    for(int i = destroyed.size() - 1; i >= 0; i--) {
+      AbstractSprite target = destroyed.get(i);
+      sprites.remove(target);
+      destroyed.remove(target);
     }
   }
   
