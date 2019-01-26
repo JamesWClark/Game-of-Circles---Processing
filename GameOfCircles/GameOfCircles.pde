@@ -1,19 +1,24 @@
-Ship player;
+// GLOBAL
+SpriteManager _SM;
 
 void setup() {
   size(1024, 768);
-  player = new Ship(50, 50);
+  _SM = new SpriteManager();
+  
+  for(int i = 0; i < 5; i++) {
+    _SM.spawn(new Invader(i*20, 50));
+  }
 }
 
 void draw() {
   background(255);
-  player.animate();
+  _SM.animate();
 }
 
 void keyPressed() {
-  player.keyDown();
+  _SM.getPlayer().keyDown();
 }
 
 void keyReleased() {
-  player.keyUp();
+  _SM.getPlayer().keyUp();
 }

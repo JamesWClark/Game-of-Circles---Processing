@@ -1,13 +1,9 @@
-class Invader {
-  int x, y;
-  int w = 40;
-  int h = 40;
+class Invader extends AbstractSprite {
   int xspeed = 5;
   int yspeed = 0;
 
   Invader(int x, int y) {
-    this.x = x;
-    this.y = y;
+    super(x, y, 40, 40);
   }
 
   void move() {
