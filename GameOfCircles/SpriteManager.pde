@@ -39,7 +39,7 @@ class SpriteManager {
   }
   
   void bringOutTheDead() {
-    for(int i = destroyed.size() - 1; i >= 0; i--) {
+    for(int i = 0; i < destroyed.size(); i++) {
       AbstractSprite target = destroyed.get(i);
       sprites.remove(target);
       destroyed.remove(target);
