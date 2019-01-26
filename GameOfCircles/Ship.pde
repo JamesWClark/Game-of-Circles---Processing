@@ -1,8 +1,7 @@
-class Ship {
-  int x, y;
-  int w = 50;
-  int h = 50;
+class Ship extends AbstractSprite {
   int speed = 5;
+  static int w = 50;
+  static int h = 50;
 
   boolean up = false;
   boolean down = false;
@@ -10,13 +9,7 @@ class Ship {
   boolean right = false;
 
   Ship(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
-  
-  void animate() {
-    move();
-    display();
+    super(x, y, w, h);
   }
 
   void display() {
