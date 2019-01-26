@@ -8,12 +8,15 @@ class Ship {
   boolean down = false;
   boolean left = false;
   boolean right = false;
-  
-  boolean canFire = true;
 
   Ship(int x, int y) {
     this.x = x;
     this.y = y;
+  }
+  
+  void animate() {
+    move();
+    display();
   }
 
   void display() {
@@ -62,12 +65,6 @@ class Ship {
         right = false; 
         break;
       }
-    }
-  }
-  
-  void fire() {
-    if(canFire) {
-      
     }
   }
 }
