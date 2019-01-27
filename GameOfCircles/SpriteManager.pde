@@ -27,7 +27,7 @@ class SpriteManager {
   
   void checkCollisions() {
     for(int i = 0; i < sprites.size(); i++) {
-      for(int j = 0; j < sprites.size(); j++) {
+      for(int j = i + 1; j < sprites.size(); j++) {
         AbstractSprite a = sprites.get(i);
         AbstractSprite b = sprites.get(j);
         if(a.team != b.team && a.isColliding(b)) {
