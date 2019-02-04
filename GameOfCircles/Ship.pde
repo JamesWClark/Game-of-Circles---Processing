@@ -1,70 +1,81 @@
 class Ship {
-  int x, y;
-  int w = 50;
-  int h = 50;
-  int speed = 5;
+  // variables
+  int x, y, team;
+  int w = 40;
+  int h = 40;
+  int xspeed = 5;
+  int yspeed = 2;
+  boolean left, right, up, down;
 
-  boolean up = false;
-  boolean down = false;
-  boolean left = false;
-  boolean right = false;
-
-  Ship(int x, int y) {
+  // constructors
+  Ship(int x, int y, int team) {
     this.x = x;
     this.y = y;
+    this.team = team;
   }
-  
+
+  // functions
   void animate() {
     move();
     display();
+  }
+
+  void move() {
+    if (left)  x -= xspeed;
+    if (right) x += xspeed;
+    if (up)    y -= yspeed;
+    if (down)  y += yspeed;
+
+    x = constrain(x, 0, width); // limits the value
+    y = constrain(y, 0, height);
   }
 
   void display() {
     ellipse(x, y, w, h);
   }
 
-  void move() {
-    if (up) y -= speed;
-    if (down) y += speed;
-    if (left) x -= speed;
-    if (right) x += speed;
+  void fire() {
+    bullets.add(new Bullet(x, y, new PVector(0, -10), team));
   }
 
   void keyDown() {
-    if (key == CODED) {
-      switch(keyCode) {
-      case UP: 
-        up = true; 
-        break;
-      case DOWN: 
-        down = true; 
-        break;
-      case LEFT: 
-        left = true; 
-        break;
-      case RIGHT: 
-        right = true; 
-        break;
-      }
+    switch(key) {
+    case 'f':
+    case 'F':
+    case ' ':
+      fire();
+      break;
+    }
+    switch(keyCode) {
+    case LEFT:
+      left = true;
+      break;
+    case RIGHT:
+      right = true;
+      break;
+    case UP:
+      up = true;
+      break;
+    case DOWN:
+      down = true;
+      break;
     }
   }
 
   void keyUp() {
-    if (key == CODED) {
-      switch(keyCode) {
-      case UP: 
-        up = false; 
-        break;
-      case DOWN: 
-        down = false; 
-        break;
-      case LEFT: 
-        left = false; 
-        break;
-      case RIGHT: 
-        right = false; 
-        break;
-      }
+    switch(keyCode) {
+    case LEFT:
+      left = false;
+      break;
+    case RIGHT:
+      right = false;
+      break;
+    case UP:
+      up = false;
+      break;
+    case DOWN:
+      down = false;
+      break;
     }
   }
 }

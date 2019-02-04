@@ -1,21 +1,27 @@
 class Bullet {
-  int x, y;
+  int x, y, team;
   int w = 10;
   int h = 10;
-  PVector v;
+  PVector velocity;
   
-  Bullet(int x, int y, PVector velocity) {
+  Bullet(int x, int y, PVector velocity, int team) {
     this.x = x;
     this.y = y;
-    v = velocity;
+    this.velocity = velocity;
+    this.team = team;
   }
   
   void move() {
-    x += v.x;
-    y += v.y;
+    x += velocity.x;
+    y += velocity.y;
   }
   
   void display() {
     ellipse(x, y, w, h);
+  }
+  
+  void animate() {
+    move();
+    display();
   }
 }
