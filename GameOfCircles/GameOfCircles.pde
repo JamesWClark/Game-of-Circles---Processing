@@ -26,6 +26,28 @@ void draw() {
   for (Invader inv : invaders) {
     inv.animate();
   }
+  
+  for (Bullet b : bullets) {
+    b.animate();
+  }
+  
+  handleCollisions();
+}
+
+void handleCollisions() {
+  for(int i = 0; i < bullets.size(); i++) {
+    for(int j = 0; j < invaders.size(); j++) {
+      Bullet bul = bullets.get(i);
+      Invader inv = invaders.get(j);
+      double d = Math.sqrt(Math.pow(bul.x - inv.x, 2) + Math.pow(bul.y - inv.y, 2));
+      double r1 = bul.w / 2.0;
+      double r2 = inv.w / 2.0;
+      if(r1 + r2 > d) {
+        bullets.remove(bul);
+        invaders.remove(inv);
+      }
+    }
+  }
 }
 
 void keyPressed() {
