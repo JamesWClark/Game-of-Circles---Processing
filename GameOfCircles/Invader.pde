@@ -26,7 +26,7 @@ class Invader {
   void display() {
     fill(0);
     stroke(255);
-    ellipse(x, y, diameter, diameter);
+    ellipse(x, y, w, h);
   }
   
   void animate() {

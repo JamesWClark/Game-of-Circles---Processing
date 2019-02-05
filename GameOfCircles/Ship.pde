@@ -31,7 +31,7 @@ class Ship {
 
   void display() {
     fill(0, 0, 255);
-    ellipse(x, y, diameter, diameter);
+    ellipse(x, y, w, h);
   }
 
   void fire() {

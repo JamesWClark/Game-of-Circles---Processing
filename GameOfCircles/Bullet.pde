@@ -17,7 +17,7 @@ class Bullet {
   
   void display() {
     fill(255);
-    ellipse(x, y, diameter, diameter);
+    ellipse(x, y, w, h);
   }
   
   void animate() {
