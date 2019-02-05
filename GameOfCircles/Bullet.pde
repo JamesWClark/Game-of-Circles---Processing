@@ -1,6 +1,6 @@
 class Bullet {
   int x, y, team;
-  int diameter = 10;
+  int w = 10, h = 10;
   PVector velocity;
   
   Bullet(int x, int y, PVector velocity, int team) {

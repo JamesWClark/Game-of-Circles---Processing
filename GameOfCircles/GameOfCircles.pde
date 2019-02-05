@@ -42,8 +42,8 @@ void checkCollisions() {
         Invader inv = invaders.get(j);
         // get the distance between two objects
         double d = Math.sqrt(Math.pow(inv.x - bul.x, 2) + Math.pow(inv.y - bul.y, 2));
-        double r1 = bul.diameter / 2.0; // avoids integer truncation, (bc not divide by int)
-        double r2 = inv.diameter / 2.0; // also avoid integers trunction
+        double r1 = bul.w / 2.0; // avoids integer truncation, (bc not divide by int)
+        double r2 = inv.w / 2.0; // also avoid integers trunction
         if (r1 + r2 > d) { // a collision has occurred
           bullets.remove(bul);
           invaders.remove(inv);

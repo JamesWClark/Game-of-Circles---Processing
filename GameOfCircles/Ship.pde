@@ -1,7 +1,7 @@
 class Ship {
   // variables
   int x, y, team;
-  int diameter = 40;
+  int w = 40, h = 40;
   int xspeed = 5;
   int yspeed = 2;
   boolean left, right, up, down;
