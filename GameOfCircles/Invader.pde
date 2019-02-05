@@ -1,7 +1,6 @@
 class Invader {
   int x, y, team;
-  int w = 40;
-  int h = 40;
+  int diameter = 40;
   int xspeed = 5;
   int yspeed = 0;
 
@@ -25,7 +24,9 @@ class Invader {
   }
 
   void display() {
-    ellipse(x, y, w, h);
+    fill(0);
+    stroke(255);
+    ellipse(x, y, diameter, diameter);
   }
   
   void animate() {

@@ -1,7 +1,6 @@
 class Bullet {
   int x, y, team;
-  int w = 10;
-  int h = 10;
+  int diameter = 10;
   PVector velocity;
   
   Bullet(int x, int y, PVector velocity, int team) {
@@ -17,7 +16,8 @@ class Bullet {
   }
   
   void display() {
-    ellipse(x, y, w, h);
+    fill(255);
+    ellipse(x, y, diameter, diameter);
   }
   
   void animate() {
