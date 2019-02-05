@@ -23,7 +23,7 @@ class Ship {
     if (left)  x -= xspeed;
     if (right) x += xspeed;
     if (up)    y -= yspeed;
-    if (down)  y += yspeed;
+    if (down)  y += 3 * yspeed;
 
     x = constrain(x, 0, width); // limits the value
     y = constrain(y, 0, height);

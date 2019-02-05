@@ -27,6 +27,7 @@ void draw() {
   for (Bullet b : bullets) {
     b.animate();
   }
+
   checkCollisions();
 }
 
