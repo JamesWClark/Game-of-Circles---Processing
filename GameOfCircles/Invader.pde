@@ -1,14 +1,13 @@
 class Invader {
-  int x, y, team;
+  int x, y;
   int w = 40, h = 40;
   int xspeed = 5;
   int yspeed = 0;
 
   // constructor
-  Invader(int x, int y, int team) {
+  Invader(int x, int y) {
     this.x = x;
     this.y = y;
-    this.team = team;
   }
 
   void move() {
