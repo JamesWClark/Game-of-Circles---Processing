@@ -7,7 +7,7 @@ class Ship {
   boolean left, right, up, down;
 
   // constructors
-  Ship(int x, int y) {
+  Ship(int x, int y, int team) {
     this.x = x;
     this.y = y;
     this.team = team;
@@ -30,12 +30,11 @@ class Ship {
   }
 
   void display() {
-    fill(0, 0, 255);
     ellipse(x, y, w, h);
   }
 
   void fire() {
-    //bullets.add(new Bullet(x, y, new PVector(0, -10), team));
+    bullets.add(new Bullet(x, y, new PVector(0, -10), team));
   }
 
   void keyDown() {
