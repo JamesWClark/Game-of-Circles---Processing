@@ -1,8 +1,7 @@
 class Ship {
   // variables
   int x, y, team;
-  int w = 40;
-  int h = 40;
+  int diameter = 40;
   int xspeed = 5;
   int yspeed = 2;
   boolean left, right, up, down;
@@ -24,14 +23,15 @@ class Ship {
     if (left)  x -= xspeed;
     if (right) x += xspeed;
     if (up)    y -= yspeed;
-    if (down)  y += yspeed;
+    if (down)  y += 3 * yspeed;
 
     x = constrain(x, 0, width); // limits the value
     y = constrain(y, 0, height);
   }
 
   void display() {
-    ellipse(x, y, w, h);
+    fill(0, 0, 255);
+    ellipse(x, y, diameter, diameter);
   }
 
   void fire() {
