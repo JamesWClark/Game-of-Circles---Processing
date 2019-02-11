@@ -1,8 +1,6 @@
 // variables
 ArrayList<Invader> invaders = new ArrayList();
 ArrayList<Bullet> bullets = new ArrayList();
-
-
 Ship player; // declare
 
 int playerTeam = 1;
