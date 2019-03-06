@@ -10,7 +10,7 @@ class Invader {
     this.y = y;
     this.team = team;
   }
-
+  
   void move() {
     x += xspeed;
     y += yspeed;
