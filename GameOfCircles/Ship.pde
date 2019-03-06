@@ -35,7 +35,9 @@ class Ship {
   }
 
   void fire() {
+    bullets.add(new Bullet(x, y, new PVector(2, -10), team));
     bullets.add(new Bullet(x, y, new PVector(0, -10), team));
+    bullets.add(new Bullet(x, y, new PVector(-2, -10), team));
   }
 
   void keyDown() {
