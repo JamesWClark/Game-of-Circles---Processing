@@ -22,6 +22,9 @@ class SpriteManager {
       sprites.get(i).animate();
     }
     checkCollisions();
+    println("Length of sprites: " + sprites.size());
+    println("Length of destroyed: " + destroyed.size());
+    
     bringOutTheDead();
   }
   

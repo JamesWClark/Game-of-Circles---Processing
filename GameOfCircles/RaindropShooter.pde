@@ -1,5 +1,7 @@
 class RaindropShooter extends Raindrop {
   
+  int shots = 0;
+  
   RaindropShooter(int x, int y) {
     super(x, y);
   }
@@ -22,6 +24,8 @@ class RaindropShooter extends Raindrop {
   }
   
   void fire(PVector vector) {
+    shots++;
+    println("Fired " + shots + " bullets");
     _SM.spawn(new Bullet(this.x, this.y, this.team, vector));
   }
 }

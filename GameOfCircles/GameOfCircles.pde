@@ -8,9 +8,12 @@ void setup() {
   for(int i = 0; i < 5; i++) {
     _SM.spawn(new Invader(i*20, 50));
   }
+  _SM.spawn(new Raindrop(100, 100));
+  _SM.spawn(new RaindropShooter(200, 200));
 }
 
 void draw() {
+  println("Frame: " + frameCount);
   background(255);
   _SM.animate();
 }
