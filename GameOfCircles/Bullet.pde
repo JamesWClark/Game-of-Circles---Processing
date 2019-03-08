@@ -1,12 +1,8 @@
-class Bullet {
-  int x, y, team;
-  int w = 10;
-  int h = 10;
+class Bullet extends AbstractSprite {
   PVector velocity;
   
   Bullet(int x, int y, PVector velocity, int team) {
-    this.x = x;
-    this.y = y;
+    super(x, y, 10, 10);
     this.velocity = velocity;
     this.team = team;
   }
@@ -14,14 +10,5 @@ class Bullet {
   void move() {
     x += velocity.x;
     y += velocity.y;
-  }
-  
-  void display() {
-    ellipse(x, y, w, h);
-  }
-  
-  void animate() {
-    move();
-    display();
   }
 }
