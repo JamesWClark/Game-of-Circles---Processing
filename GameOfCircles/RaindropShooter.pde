@@ -26,6 +26,6 @@ class RaindropShooter extends Raindrop {
   void fire(PVector vector) {
     shots++;
     println("Fired " + shots + " bullets");
-    _SM.spawn(new Bullet(this.x, this.y, this.team, vector));
+    _SM.spawn(new Bullet(this.x, this.y, vector, team));
   }
 }

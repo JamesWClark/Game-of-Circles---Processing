@@ -22,9 +22,6 @@ class SpriteManager {
       sprites.get(i).animate();
     }
     checkCollisions();
-    println("Length of sprites: " + sprites.size());
-    println("Length of destroyed: " + destroyed.size());
-    
     bringOutTheDead();
   }
   
@@ -33,12 +30,18 @@ class SpriteManager {
       for(int j = i + 1; j < sprites.size(); j++) {
         AbstractSprite a = sprites.get(i);
         AbstractSprite b = sprites.get(j);
-        if(a.team != b.team && a.isColliding(b)) {
+        if(a.team != b.team && collision(a, b)) {
           sprites.get(i).handleCollision();
           sprites.get(j).handleCollision();
         }
       }
     }
+  }
+  
+  boolean collision(AbstractSprite a, AbstractSprite b) {
+    float r1 = a.w / 2.0;
+    float r2 = b.w / 2.0;
+    return r1 + r2 > dist(a.x, a.y, b.x, b.y);
   }
   
   void bringOutTheDead() {

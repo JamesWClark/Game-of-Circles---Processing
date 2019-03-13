@@ -1,78 +1,67 @@
 class Player extends AbstractSprite {
-  int speed = 5;
+  // variables
+  int xspeed = 5;
+  int yspeed = 2;
+  boolean left, right, up, down;
 
-  boolean up = false;
-  boolean down = false;
-  boolean left = false;
-  boolean right = false;
-
+  // constructors
   Player(int x, int y) {
-    super(x, y, 50, 50);
-    team = 1; // as opposed to default enemy 2
-  }
-
-  void display() {
-    ellipse(x, y, w, h);
+    super(x, y, 40, 40);
+    team = 1;
   }
 
   void move() {
-    if (up) y -= speed;
-    if (down) y += speed;
-    if (left) x -= speed;
-    if (right) x += speed;
-    
-    x = constrain(x, 0+w/2, width-w/2);
-    y = constrain(y, 0+h/2, height-h/2);
+    if (left)  x -= xspeed;
+    if (right) x += xspeed;
+    if (up)    y -= yspeed;
+    if (down)  y += yspeed;
+
+    x = constrain(x, 0, width); // limits the value
+    y = constrain(y, 0, height);
   }
-  
+
   void fire() {
-    _SM.spawn(new Bullet(x, y, team, new PVector(0, -10)));
-  }
-  
-  void handleCollision() {
-    // invincible! do nothing
+    _SM.spawn(new Bullet(x, y, new PVector(0, -10), team));
   }
 
   void keyDown() {
     switch(key) {
-      case 'f':
-      case 'F':
-      case ' ':
-        fire(); // !
-        break;
+    case 'f':
+    case 'F':
+    case ' ':
+      fire();
+      break;
     }
     switch(keyCode) {
-    case UP: 
-      up = true; 
+    case LEFT:
+      left = true;
       break;
-    case DOWN: 
-      down = true; 
+    case RIGHT:
+      right = true;
       break;
-    case LEFT: 
-      left = true; 
+    case UP:
+      up = true;
       break;
-    case RIGHT: 
-      right = true; 
+    case DOWN:
+      down = true;
       break;
     }
   }
 
   void keyUp() {
-    if (key == CODED) {
-      switch(keyCode) {
-      case UP: 
-        up = false; 
-        break;
-      case DOWN: 
-        down = false; 
-        break;
-      case LEFT: 
-        left = false; 
-        break;
-      case RIGHT: 
-        right = false; 
-        break;
-      }
+    switch(keyCode) {
+    case LEFT:
+      left = false;
+      break;
+    case RIGHT:
+      right = false;
+      break;
+    case UP:
+      up = false;
+      break;
+    case DOWN:
+      down = false;
+      break;
     }
   }
 }
