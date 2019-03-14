@@ -21,13 +21,6 @@ abstract class AbstractSprite {
     display();
   }
   
-  boolean isColliding(AbstractSprite other) {
-    // assumes equal w and h
-    float r1 = w / 2.0;
-    float r2 = other.w / 2.0;
-    return r1 + r2 > dist(x, y, other.x, other.y);
-  }
-  
   void handleCollision() {
     _SM.destroy(this);
   }
