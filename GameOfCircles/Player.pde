@@ -1,22 +1,13 @@
-class Ship {
+class Player extends AbstractSprite {
   // variables
-  int x, y, team;
-  int diameter = 40;
   int xspeed = 5;
   int yspeed = 2;
   boolean left, right, up, down;
 
   // constructors
-  Ship(int x, int y, int team) {
-    this.x = x;
-    this.y = y;
-    this.team = team;
-  }
-
-  // functions
-  void animate() {
-    move();
-    display();
+  Player(int x, int y) {
+    super(x, y, 40, 40);
+    team = 1;
   }
 
   void move() {
@@ -29,13 +20,8 @@ class Ship {
     y = constrain(y, 0, height);
   }
 
-  void display() {
-    fill(0, 0, 255);
-    ellipse(x, y, diameter, diameter);
-  }
-
   void fire() {
-    bullets.add(new Bullet(x, y, new PVector(0, -10), team));
+    _SM.spawn(new Bullet(x, y, new PVector(0, -10), team));
   }
 
   void keyDown() {
