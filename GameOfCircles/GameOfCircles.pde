@@ -8,6 +8,7 @@ void setup() {
 }
 
 void draw() {
+<<<<<<< HEAD
   background(204);
   _SM.manage();
 }

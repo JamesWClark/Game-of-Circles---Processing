@@ -1,10 +1,8 @@
 class Player extends AbstractSprite {
-  // variables
   int xspeed = 5;
   int yspeed = 2;
   boolean left, right, up, down;
 
-  // constructors
   Player(int x, int y) {
     super(x, y, 40, 40);
     team = 1;
