@@ -20,7 +20,7 @@ abstract class AbstractSprite {
     move();
     display();
   }
-  
+
   boolean isColliding(AbstractSprite other) {
     // assumes equal w and h
     float r1 = w / 2.0;
